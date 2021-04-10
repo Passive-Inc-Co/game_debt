@@ -11,7 +11,7 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.green,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(
@@ -31,25 +31,19 @@ class _SignInScreenState extends State<SignInScreen> {
                     Flexible(
                       flex: 1,
                       child: Image.asset(
-                        'assets/firebase_logo.png',
+                        'assets/blackjack.png',
                         height: 160,
                       ),
                     ),
                     SizedBox(height: 20),
                     Text(
-                      'FlutterFire',
+                      'Game Ledger',
                       style: TextStyle(
                         color: Colors.amber,
                         fontSize: 40,
                       ),
                     ),
-                    Text(
-                      'Authentication',
-                      style: TextStyle(
-                        color: Colors.orangeAccent,
-                        fontSize: 40,
-                      ),
-                    ),
+
                   ],
                 ),
               ),
