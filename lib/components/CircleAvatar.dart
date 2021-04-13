@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MyAvatar extends StatelessWidget {
-
-
-  const MyAvatar({Key? key })
+  final String imgUrl;
+  const MyAvatar({Key? key ,required this.imgUrl})
       : super(key: key);
 
   @override
@@ -14,16 +13,16 @@ class MyAvatar extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, '/user');
             },
-          color: Theme.of(context).accentColor,
+          color: Theme.of(context).primaryColor,
           textColor: Colors.white,
           child: CircleAvatar(
 //TODO make it take users photo or letter
             backgroundImage: NetworkImage(
-                "https://4.bp.blogspot.com/-Jx21kNqFSTU/UXemtqPhZCI/AAAAAAAAh74/BMGSzpU6F48/s1600/funny-cat-pictures-047-001.jpg"),
-            backgroundColor: Theme.of(context).accentColor,
+                this.imgUrl),
+            backgroundColor: Theme.of(context).primaryColor,
           ),
-          padding: EdgeInsets.all(0),
-          shape: CircleBorder(),
+          padding: EdgeInsets.all(2),
+          shape: CircleBorder(side:BorderSide.none ),
         ));
   }
 }

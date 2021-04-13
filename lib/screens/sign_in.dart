@@ -3,6 +3,7 @@ import '../utils/authentication.dart';
 import '../widgets/google_sign_in_button.dart';
 
 class SignInScreen extends StatefulWidget {
+  static String routeName = "/sign_in";
   @override
   _SignInScreenState createState() => _SignInScreenState();
 }

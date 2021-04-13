@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'sign_in.dart';
-import '../utils/authentication.dart';
-import '../components/MyAppBar.dart';
+import '../sign_in.dart';
+import '../../utils/authentication.dart';
+import '../../components/MyAppBar.dart';
+import '../../components/MyBottomNav.dart';
+import '../../enums.dart';
 
-class UserInfoScreen extends StatefulWidget {
-  const UserInfoScreen({Key? key, required User user})
+class ProfileScreen extends StatefulWidget {
+  static String routeName = "/profile_screen";
+
+  const ProfileScreen({Key? key, required User user})
       : _user = user,
         super(key: key);
 
   final User _user;
 
   @override
-  _UserInfoScreenState createState() => _UserInfoScreenState();
+  _ProfileScreenState createState() => _ProfileScreenState();
 }
 
-class _UserInfoScreenState extends State<UserInfoScreen> {
+class _ProfileScreenState extends State<ProfileScreen> {
   late User _user;
   bool _isSigningOut = false;
 
@@ -49,7 +53,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blueGrey,
-      appBar: MyAppBar(title: 'Game Debt', appBar: AppBar()),
+      bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.profile,),
+      appBar: MyAppBar(title: 'Game Debt', appBar: AppBar(),user: this._user,),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(

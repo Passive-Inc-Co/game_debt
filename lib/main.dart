@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'components/MyAppBar.dart';
-import 'package:game_debt/screens/user.dart';
-import 'package:flutter/material.dart';
-
+import 'package:game_debt/routes.dart';
+import 'theme.dart';
 import 'screens/sign_in.dart';
 
 void main() {
@@ -15,11 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Game Debt',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.indigo,
-        brightness: Brightness.dark,
-      ),
-      home: SignInScreen(),
+      theme: theme(),
+      initialRoute: SignInScreen.routeName,
+      routes: routes,
     );
   }
 }
