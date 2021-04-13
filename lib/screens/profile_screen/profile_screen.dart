@@ -54,7 +54,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.profile,),
-      appBar: MyAppBar(title: 'Game Debt', appBar: AppBar(),user: this._user,),
+      appBar: MyAppBar(title: 'Game Debt', appBar: AppBar()),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:game_debt/screens/profile_screen/profile_screen.dart';
+import 'package:game_debt/screens/home_screen/home_screen.dart';
 
 import '../constants.dart';
 import '../enums.dart';
@@ -50,15 +51,14 @@ class CustomBottomNavBar extends StatelessWidget {
                   color: MenuState.home == selectedMenu
                       ? kPrimaryColor
                       : inActiveIconColor,),
-                onPressed: () {},
+                onPressed: () =>  Navigator.pushNamed(context, HomeScreen.routeName),
               ),
               IconButton(
                 icon: Icon( Icons.account_circle_outlined,
                   color: MenuState.profile == selectedMenu
                       ? kPrimaryColor
                       : inActiveIconColor,),
-                onPressed: () =>
-                    Navigator.pushNamed(context, ProfileScreen.routeName),
+                onPressed: () =>Navigator.pushNamed(context, ProfileScreen.routeName),
               ),
             ],
           )),

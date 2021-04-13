@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       theme: theme(),
       initialRoute: SignInScreen.routeName,
       routes: routes,
+      home: SignInScreen(),
     );
   }
 }

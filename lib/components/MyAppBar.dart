@@ -7,10 +7,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final AppBar? appBar;
 
 
-  const MyAppBar({Key? key, this.title,this.appBar,required User user })
-      : _user = user;
+  const MyAppBar({Key? key, this.title,this.appBar,});
 
-  final User _user;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +16,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       // Here we take the value from the MyHomePage object that was created by
       // the App.build method, and use it to set our appbar title.
-      actions: <Widget> [MyAvatar(imgUrl:this._user.photoURL?? "https://images.vexels.com/media/users/3/189299/isolated/preview/35bdc522366f66f364796411f595fec1-poker-cards-four-aces-illustration-by-vexels.png")],
+      // actions: <Widget> [MyAvatar(imgUrl:this._user.photoURL?? "https://images.vexels.com/media/users/3/189299/isolated/preview/35bdc522366f66f364796411f595fec1-poker-cards-four-aces-illustration-by-vexels.png")],
       title: Text(title!),
       backgroundColor: Colors.blueGrey,
     );
