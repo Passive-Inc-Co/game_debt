@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../utils/authentication.dart';
 import '../screens/profile_screen/profile_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'package:game_debt/utils/appdata.dart';
 
 class GoogleSignInButton extends StatefulWidget {
   @override
@@ -42,10 +42,10 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
           });
 
           if (user != null) {
+            appData.user=user;
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
                 builder: (context) => ProfileScreen(
-                  user: user,
                 ),
               ),
             );
