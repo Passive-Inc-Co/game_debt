@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:game_debt/models/game_log.dart';
+import 'package:game_debt/utils/appdata.dart';
 import 'package:intl/intl.dart';
 
 class GameContainer extends StatefulWidget {
@@ -74,36 +75,28 @@ class _GameContainerState extends State<GameContainer> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 6,
-        color: this.widget.gameData.isActive?Colors.blueGrey[150]:Colors.blueGrey[100],
-        margin: const EdgeInsets.symmetric( vertical: 7),
-        child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0 , vertical: 0),
-        child: Column(
-          children: <Widget>[
-            SizedBox(height: 20.0),
-            ExpansionTile(
-              trailing: Text(
-                this.widget.gameData.sumMoney().toString() + "\$",
-                style: TextStyle(
-                    color: this.widget.gameData.sumMoney() > 0
-                        ? Colors.lightGreen
-                        : Colors.red),
-              ),
-              title: Text(
-                DateFormat('dd/MM/yy').format(this.widget.gameData.startTime),
-                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-              ),
-              children: <Widget>[
-                ListTile(
-                  title: Text('data'),
-                )
-              ],
+      child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15.0 , vertical: 0),
+      child: Column(
+        children: <Widget>[
+          ListTile(
+            trailing: Text(
+              this.widget.gameData.sumMoney().toString() + appData.currency.symbol,
+              style: TextStyle(
+                  color: this.widget.gameData.sumMoney() > 0
+                      ? Colors.lightGreen
+                      : Colors.red),
             ),
-            addSection()
-          ],
-        ),
+            title: Text(
+              DateFormat('dd/MM/yy').format(this.widget.gameData.startTime),
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            ),
+
+          ),
+          addSection()
+        ],
       ),
+        ),
     );
   }
 }

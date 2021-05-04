@@ -17,8 +17,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       // Here we take the value from the MyHomePage object that was created by
       // the App.build method, and use it to set our appbar title.
       // actions: <Widget> [MyAvatar(imgUrl:this._user.photoURL?? "https://images.vexels.com/media/users/3/189299/isolated/preview/35bdc522366f66f364796411f595fec1-poker-cards-four-aces-illustration-by-vexels.png")],
-      title: Text(title!),
-      backgroundColor: Colors.blueGrey,
+      title: Text(title!, style: TextStyle(color: Colors.black.withOpacity(1.0))),
+      backgroundColor: Colors.blueGrey[200],
     );
   }
 
