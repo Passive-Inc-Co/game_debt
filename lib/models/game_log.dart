@@ -7,6 +7,21 @@ class GameLog {
   var isActive = true;
   DateTime? endTime;
 
+  int activaitionSort(other){
+    if (this.isActive==null||other ==null){
+      return 0;
+    }
+    if (this.isActive==other.isActive){
+      return 0;
+    }
+    if (this.isActive==true && other.isActive ==false){
+      return -1;
+    }
+    if (this.isActive==false && other.isActive ==true){
+      return 1;
+    }
+    return 0;
+  }
   void addLog(int amount) {
     this.logs.add(SingleLog(amount: amount));
   }

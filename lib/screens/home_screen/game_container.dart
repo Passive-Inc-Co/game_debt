@@ -73,31 +73,36 @@ class _GameContainerState extends State<GameContainer> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0),
-      child: Column(
-        children: <Widget>[
-          SizedBox(height: 20.0),
-          ExpansionTile(
-            trailing: Text(
-              this.widget.gameData.sumMoney().toString() + "\$",
-              style: TextStyle(
-                  color: this.widget.gameData.sumMoney() > 0
-                      ? Colors.lightGreen
-                      : Colors.red),
+    return Card(
+      elevation: 6,
+        color: this.widget.gameData.isActive?Colors.blueGrey[150]:Colors.blueGrey[100],
+        margin: const EdgeInsets.symmetric( vertical: 7),
+        child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0 , vertical: 0),
+        child: Column(
+          children: <Widget>[
+            SizedBox(height: 20.0),
+            ExpansionTile(
+              trailing: Text(
+                this.widget.gameData.sumMoney().toString() + "\$",
+                style: TextStyle(
+                    color: this.widget.gameData.sumMoney() > 0
+                        ? Colors.lightGreen
+                        : Colors.red),
+              ),
+              title: Text(
+                DateFormat('dd/MM/yy').format(this.widget.gameData.startTime),
+                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+              ),
+              children: <Widget>[
+                ListTile(
+                  title: Text('data'),
+                )
+              ],
             ),
-            title: Text(
-              DateFormat('dd/MM/yy').format(this.widget.gameData.startTime),
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-            ),
-            children: <Widget>[
-              ListTile(
-                title: Text('data'),
-              )
-            ],
-          ),
-          addSection()
-        ],
+            addSection()
+          ],
+        ),
       ),
     );
   }

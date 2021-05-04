@@ -18,6 +18,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late List<GameLog> games;
+  final List<GameLog> demoItems=[demoUnAciveGameLog(),demoUnAciveGameLog(),demoGameLog(),demoUnAciveGameLog(),demoUnAciveGameLog(),demoUnAciveGameLog()];
 
   @override
   void initState() {
@@ -25,8 +26,12 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
+
   @override
   Widget build(BuildContext context) {
+    this.demoItems.sort((a,b){
+      return a.activaitionSort(b);
+    });
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.home,),
@@ -38,11 +43,11 @@ class _HomeScreenState extends State<HomeScreen> {
             right: 16.0,
             bottom: 20.0,
           ),
-          child: Column(
-            children: [
-              GameContainer(demoGameLog()),
-              GameContainer(demoUnAciveGameLog()),
-            ],
+          child:ListView.builder(
+            itemCount: demoItems.length,
+            itemBuilder: (context, index) {
+              return GameContainer((demoItems[index]));
+            },
           )
         ),
       ),
