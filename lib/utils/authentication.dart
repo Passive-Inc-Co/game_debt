@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import '../screens/profile_screen/profile_screen.dart';
+import '../screens/home_screen/home_screen.dart';
 import 'package:game_debt/utils/appdata.dart';
 
 class Authentication {
@@ -19,7 +19,7 @@ class Authentication {
       appData.user=user;
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => ProfileScreen(
+          builder: (context) => HomeScreen(
 
           ),
         ),
